@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace SteamsferWeb.Migrations
+namespace Steamsfer.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class AddCategoryTable : Migration

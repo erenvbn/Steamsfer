@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
-using SteamsferWeb.Data;
-using SteamsferWeb.Models;
+using Steamsfer.DataAccess.Data;
+using Steamsfer.Models;
 
 namespace SteamsferWeb.Controllers
 {

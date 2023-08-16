@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
 
-namespace SteamsferWeb.Models
+namespace Steamsfer.Models
 {
     public class Category
     {

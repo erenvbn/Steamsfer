@@ -15,4 +15,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Steamsfer.DataAccess\Steamsfer.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

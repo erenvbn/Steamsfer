@@ -4,7 +4,7 @@
 
 #pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
 
-namespace SteamsferWeb.Migrations
+namespace Steamsfer.DataAccess.Migrations
 {
     /// <inheritdoc />
     public partial class SeedCategoryTable : Migration

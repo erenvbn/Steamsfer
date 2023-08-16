@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using SteamsferWeb.Models;
+using Steamsfer.Models;
 
-namespace SteamsferWeb.Data
+namespace Steamsfer.DataAccess.Data
 {
     public class ApplicationDBContext : DbContext
     {

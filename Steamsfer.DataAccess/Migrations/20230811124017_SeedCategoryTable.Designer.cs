@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SteamsferWeb.Data;
+using Steamsfer.DataAccess.Data;
 
 #nullable disable
 
-namespace SteamsferWeb.Migrations
+namespace Steamsfer.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
     [Migration("20230811124017_SeedCategoryTable")]

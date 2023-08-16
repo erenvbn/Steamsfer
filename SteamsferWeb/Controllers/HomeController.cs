@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using SteamsferWeb.Models;
+using Steamsfer.Models;
 using System.Diagnostics;
 
 namespace SteamsferWeb.Controllers

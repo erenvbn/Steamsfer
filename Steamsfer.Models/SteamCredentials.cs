@@ -1,4 +1,4 @@
-﻿namespace SteamsferWeb.Models
+﻿namespace Steamsfer.Models
 {
     public class SteamCredentials
     {

@@ -1,6 +1,6 @@
 //Creating a builder
 using Microsoft.EntityFrameworkCore;
-using SteamsferWeb.Data;
+using Steamsfer.DataAccess.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

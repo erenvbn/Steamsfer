@@ -2,17 +2,20 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using SteamsferWeb.Data;
+using Steamsfer.DataAccess.Data;
 
 #nullable disable
 
-namespace SteamsferWeb.Migrations
+namespace Steamsfer.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    partial class ApplicationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230811083045_AddCategoryTable")]
+    partial class AddCategoryTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -39,26 +42,6 @@ namespace SteamsferWeb.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DisplayOrder = 1,
-                            Name = "Category1"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DisplayOrder = 2,
-                            Name = "Category2"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DisplayOrder = 3,
-                            Name = "Category3"
-                        });
                 });
 #pragma warning restore 612, 618
         }
