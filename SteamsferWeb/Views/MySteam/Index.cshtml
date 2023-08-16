@@ -1,0 +1,34 @@
+﻿@model SteamCredentials
+
+<div>
+    <h1>My Steam</h1>
+</div>
+
+<div class="col-6">
+    <form method="post">
+
+        <div class="mt-2">
+            <label class="form-label" for="">SteamID:</label>
+            <div>
+            <input asp-for="Name" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="form-label mt-4">SteamID:</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <span asp-validation-for="Name"></span>
+        </div>
+
+        <div class="text-end">
+            <button type="submit" class="btn btn-info text-end mt-3">Fetch</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+

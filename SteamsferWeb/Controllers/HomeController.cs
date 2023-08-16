@@ -6,13 +6,16 @@ namespace SteamsferWeb.Controllers
 {
     public class HomeController : Controller
     {
+
         private readonly ILogger<HomeController> _logger;
 
+        //Constructor
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
+        //Actions
         public IActionResult Index()
         {
             return View();
