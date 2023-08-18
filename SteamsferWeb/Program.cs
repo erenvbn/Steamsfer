@@ -1,12 +1,14 @@
 //Creating a builder
 using Microsoft.EntityFrameworkCore;
 using Steamsfer.DataAccess.Data;
+using Steamsfer.DataAccess.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container, old Startup File.
 // Dependency injection will be added into services.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<CommonMethods>();
 
 //Adding DbContext service to container with options and ConnectionString
 builder.Services.AddDbContext<ApplicationDBContext>

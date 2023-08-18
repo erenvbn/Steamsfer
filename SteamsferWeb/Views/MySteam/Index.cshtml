@@ -1,34 +1,25 @@
-﻿@model Category
+﻿@model SteamCredentials
 
-<div>
-    <h1>My Steam</h1>
+<div class="col-8 text-start">
+
+    <div>
+        <form method="post" asp-controller="MySteam" asp-action="IndexSteamCredentials">
+            <div class="mt-2">
+                <label class="form-label c-s1" for="">SteamID:</label>
+                <div>
+                <input asp-for="@Model.SteamID" class="form-control" />
+                </div>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-info text-end mt-2">Fetch</button>
+            </div>
+        </form>
+    </div>
 </div>
 
-<div class="col-6">
-    <form method="post">
-
-        <div class="mt-2">
-            <label class="form-label" for="">SteamID:</label>
-            <div>
-            <input asp-for="Name" class="form-control" />
-            </div>
-
-            <div class="form-group">
-                <label for="exampleInputEmail" class="form-label mt-4">SteamID:</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            </div>
-            <span asp-validation-for="Name"></span>
-        </div>
-
-        <div class="text-end">
-            <button type="submit" class="btn btn-info text-end mt-3">Fetch</button>
-        </div>
-    </form>
-</div>
 
 @section Scripts{
     @{
         <partial name="_ValidationScriptsPartial" />
     }
 }
-
