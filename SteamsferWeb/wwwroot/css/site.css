@@ -23,50 +23,80 @@ body {
     color: #2a475e;
 }
 
-/*Background Color Palette*/
+
+
+/*VARIABLES*/
+
+:root {
+    --cs1: #c7d5e0;
+    --cs2: #2a475e;
+    --cs3: #1b2838;
+    --cs4: #66c0f4;
+    --cs5: #171a21;
+    --csuccess1: #00ae82;
+    --csuccess2: #007b5b;
+    --csuccess3: #006148;
+}
+
+
+/*BACKGROUND COLOR PALETTE*/
 .bg-s1 {
-    background-color: #c7d5e0;
+    background-color: var(--cs1);
 }
 
 .bg-s2 {
-    background-color: #2a475e;
+    background-color: var(--cs2);
 }
 
 .bg-s3 {
-    background-color: #1b2838;
+    background-color: var(--cs3);
 }
 
 bg-s4 {
-    background-color: #66c0f4;
+    background-color: var(--cs4);
 }
 
 .bg-s5 {
-    background-color: #171a21;
+    background-color: var(--cs5);
 }
 
-/*Text Color Palette*/
-
-.c-s1 {
-    color: #c7d5e0;
+.bg-success1 {
+    background-color: var(--csuccess1);
 }
+.bg-success2 {
+    background-color: var(--csuccess2);
+}
+.bg-success3 {
+    background-color: var(--csuccess3);
+}
+
+
+
+
+
+/*TEXT COLOR PALETTE*/
+
+.c-s1 {color: var(--cs1);}
 
 .c-s2 {
-    color: #2a475e;
+    color: var(--cs2);
 }
 
 .c-s3 {
-    color: #1b2838;
+    color: var(--cs3);
 }
 
 c-s4 {
-    color: #66c0f4;
+    color: var(--cs4);
 }
 
 .c-s5 {
-    color: #171a21;
+    color: var(--cs5);
 }
 
 
+
+/*ICONS*/
 .icon-blue {
     color: #92afcd;
 }
@@ -84,3 +114,46 @@ c-s4 {
 .icon-red:hover {
     color: #ff6a00;
 }
+
+
+/*BUTTONS*/
+
+.btn {
+    background-color: #1b2838;
+    color: #66c0f4;
+    box-shadow: none;
+    -moz-text-decoration-line: none
+}
+
+.btn:hover {
+    background-color: #269DF4;
+    color: white;
+    box-shadow: 5px 5px white;
+    font-size: 20px;
+    transform: scale(1.02);
+    transition: all 0.1s ease-in-out;
+}
+
+.btn:focus {
+    background-color: #40f8ff;
+}
+
+.btn:active {
+    background-color: red;
+    color: red;
+}
+
+
+/*NAVBAR*/
+
+.navbar-brand:hover {
+    color: white
+}
+
+.nav-link:hover {
+    color: white;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.1);
+}
+
+

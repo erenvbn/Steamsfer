@@ -1,6 +1,34 @@
 ﻿@model SteamCredentials
 
+<div>
+    <form class="mt-5" method="post" asp-controller="MatchSteam" asp-action="MatchSteamCredentials">
+        <div class="justify-content-evenly bg-s3 gap-3" style="display:flex">
 
-<h1>MatchSteam</h1>
+            <div class="col-4 bg-s3 text-start">
+                <label class="form-label c-s1" for="">SteamID</label>
+                <div>
+                    <input asp-for="@Model.SteamId" class="form-control" name="input1" />
+                </div>
+            </div>
 
+            <div class="col-4 bg-s3">
+                <label class="form-label c-s1 invisible" for="">_</label>
+                <button type="submit" class="btn btn-info w-100 float-md-none">Match</button>
+            </div>
 
+            <div class="col-4 bg-s3 text-end">
+                <label class="form-label c-s1 " for="">SteamID</label>
+                <div>
+                    <input asp-for="@Model.SteamId" class="form-control" name="input2" />
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}

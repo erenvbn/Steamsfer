@@ -1,4 +1,4 @@
-﻿@model SteamCredentials
+﻿@model SteamCredentialsViewModel
 
 <div class="col-8 text-start">
 
@@ -7,7 +7,7 @@
             <div class="mt-2">
                 <label class="form-label c-s1" for="">SteamID:</label>
                 <div>
-                <input asp-for="@Model.SteamID" class="form-control" />
+                <input asp-for="@Model.SteamId" class="form-control" />
                 </div>
             </div>
             <div class="text-end">
@@ -16,7 +16,6 @@
         </form>
     </div>
 </div>
-
 
 @section Scripts{
     @{

@@ -12,5 +12,22 @@ namespace Steamsfer.Models
         public string Name { get; set; }
         public string Id { get; set; }
         public int PlayTimeAll { get; set; }
+
+        public string TotalPlayTimeInHM
+        {
+            get
+            {
+                return ConvertMinToHM(PlayTimeAll);
+            }
+        }
+
+        public string ConvertMinToHM(int totalPlayTimeInMinutes)
+        {
+            TimeSpan time = TimeSpan.FromMinutes(totalPlayTimeInMinutes);
+            int hours = (int)time.TotalHours;
+            int minutes = time.Minutes;
+
+            return $"{hours}:{minutes:00}";
+        }
     }
 }
