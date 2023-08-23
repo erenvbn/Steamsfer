@@ -8,10 +8,10 @@ using static System.Net.WebRequestMethods;
 
 namespace SteamsferWeb.Controllers
 {
-    public class MySteam : Controller
+    public class MySteamController : Controller
     {
         public readonly CommonMethods _commonMethods;
-        public MySteam(CommonMethods commonMethods)
+        public MySteamController(CommonMethods commonMethods)
         {
             _commonMethods = commonMethods;
         }

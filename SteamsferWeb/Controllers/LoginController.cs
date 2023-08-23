@@ -2,7 +2,7 @@
 
 namespace SteamsferWeb.Controllers
 {
-    public class SquadFinder : Controller
+    public class LoginController : Controller
     {
         public IActionResult Index()
         {

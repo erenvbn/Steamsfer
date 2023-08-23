@@ -5,10 +5,10 @@ using Steamsfer.Models;
 
 namespace SteamsferWeb.Controllers
 {
-    public class MatchSteam : Controller
+    public class MatchSteamController : Controller
     {
         private readonly CommonMethods _commonMethods;
-        public MatchSteam(CommonMethods commonMethods)
+        public MatchSteamController(CommonMethods commonMethods)
         {
             _commonMethods = commonMethods;
         }
