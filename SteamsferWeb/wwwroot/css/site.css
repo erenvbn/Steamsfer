@@ -33,6 +33,8 @@ body {
     --cs3: #1b2838;
     --cs4: #66c0f4;
     --cs5: #171a21;
+    --cs6: #269DF4;
+
     --csuccess1: #00ae82;
     --csuccess2: #007b5b;
     --csuccess3: #006148;
@@ -119,15 +121,14 @@ c-s4 {
 /*BUTTONS*/
 
 .btn {
+    color: white;
     background-color: #1b2838;
-    color: #66c0f4;
     box-shadow: none;
-    -moz-text-decoration-line: none
 }
 
 .btn:hover {
-    background-color: #269DF4;
     color: white;
+    background-color:var(--cs6);
     box-shadow: 5px 5px white;
     font-size: 20px;
     transform: scale(1.02);
@@ -135,19 +136,26 @@ c-s4 {
 }
 
 .btn:focus {
-    background-color: #40f8ff;
+    color: white;
+    background-color: var(--cs6);
 }
 
 .btn:active {
-    background-color: red;
-    color: red;
+    background-color: var(--cs6);
+    color: white;
 }
 
 
 /*NAVBAR*/
 
 .navbar-brand:hover {
-    color: white
+    transform: translateX(7%);
+    transition: all 0.1s ease-in-out;
+}
+
+.nav-item {
+    display: flex;
+    justify-content: flex-end;
 }
 
 .nav-link:hover {
@@ -155,5 +163,4 @@ c-s4 {
     transition: all 0.2s ease-in-out;
     transform: scale(1.1);
 }
-
 

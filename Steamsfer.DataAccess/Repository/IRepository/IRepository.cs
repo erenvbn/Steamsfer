@@ -7,14 +7,20 @@ using System.Threading.Tasks;
 
 namespace Steamsfer.DataAccess.Repository.IRepository
 {
-    public interface IRepository<T> where T:class
+    public interface IRepository<T> where T : class
     {
-        public List<T> GetAll();
-        public T GetSingle<T>() where T:class;
+
+        //Select Methods
+        public IEnumerable<T> GetAll();
         public List<T> GetWhere(Expression<Func<T, bool>> method);
 
+        //Get with LINQ expression delegation
+        public T Get(Expression<Func<T, bool>> filter);
 
-
+        //Operation Methods
+        public void Add(T entity);
+        public void Remove(T entity);
+        public void RemoveRange(IEnumerable<T> entity);
 
     }
 }
