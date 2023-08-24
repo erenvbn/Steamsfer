@@ -11,19 +11,18 @@ namespace Steamsfer.DataAccess.Repository
     public class UnitOfWork : IUnitOfWork
     {
         private ApplicationDBContext _db;
-        public ICategoryRepository Category { get; private set; }
-
-        ICategoryRepository IUnitOfWork.CategoryRepository => throw new NotImplementedException();
+        public ICategoryRepository CategoryRepository { get; private set; }
+        public IUserRepository UserRepository { get; private set; }
 
         public UnitOfWork(ApplicationDBContext db)
         {
             _db = db;
-            Category = new CategoryRepository(_db);
+            CategoryRepository = new CategoryRepository(_db);
+            UserRepository = new UserRepository(_db);
         }
-
         public void Save()
         {
-            throw new NotImplementedException();
+            _db.SaveChanges();
         }
     }
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Steamsfer.DataAccess.Repository.IRepository
 {
-    internal interface IUnitOfWork
+    public interface IUnitOfWork
     {
         ICategoryRepository CategoryRepository { get; }
+        IUserRepository UserRepository { get; }
         void Save();
-
     }
 }

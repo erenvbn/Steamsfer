@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Steamsfer.DataAccess.Repository.IRepository
 {
-    public interface ICategoryRepository : IRepository<Category>
+    public interface IUserRepository:IRepository<User>
     {
-        void Update(Category obj);
+        public void Update(User obj);
+        public void Save();
     }
 }

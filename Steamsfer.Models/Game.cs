@@ -12,7 +12,6 @@ namespace Steamsfer.Models
         public string Name { get; set; }
         public string Id { get; set; }
         public int PlayTimeAll { get; set; }
-
         public string TotalPlayTimeInHM
         {
             get
@@ -20,7 +19,6 @@ namespace Steamsfer.Models
                 return ConvertMinToHM(PlayTimeAll);
             }
         }
-
         public string ConvertMinToHM(int totalPlayTimeInMinutes)
         {
             TimeSpan time = TimeSpan.FromMinutes(totalPlayTimeInMinutes);

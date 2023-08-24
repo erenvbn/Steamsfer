@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Steamsfer.DataAccess.Data;
 using Steamsfer.DataAccess.Repository;
+using Steamsfer.DataAccess.Repository.IRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Dependency injection will be added into services.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<CommonMethods>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 
 //Adding DbContext service to container with options and ConnectionString
 builder.Services.AddDbContext<ApplicationDBContext>

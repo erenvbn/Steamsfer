@@ -12,15 +12,15 @@ namespace SteamsferWeb.Areas.Admin.Controllers
     public class CategoryController : Controller
     {
 
-        private readonly ICategoryRepository _categoryRepo;
-        public CategoryController(ICategoryRepository db)
+        private readonly IUnitOfWork _unitOfWork;
+        public CategoryController(IUnitOfWork unitOfWork)
         {
-            _categoryRepo = db;
+            _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
         {
             //Getting Categories as a list
-            var categoryList = _categoryRepo.GetAll().ToList();
+            var categoryList = _unitOfWork.CategoryRepository.GetAll().ToList();
 
             return View(categoryList);
         }
@@ -43,8 +43,8 @@ namespace SteamsferWeb.Areas.Admin.Controllers
 
             if (ModelState.IsValid)
             {
-                _categoryRepo.Add(category);
-                _categoryRepo.Save();
+                _unitOfWork.CategoryRepository.Add(category);
+                _unitOfWork.Save();
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -55,15 +55,15 @@ namespace SteamsferWeb.Areas.Admin.Controllers
 
         public IActionResult Edit(int id)
         {
-            Category? categoryIdFromDb = _categoryRepo.Get(u => u.Id == id);
+            Category? categoryIdFromDb = _unitOfWork.CategoryRepository.Get(u => u.Id == id);
             return View(categoryIdFromDb);
         }
 
         [HttpPost]
         public IActionResult Edit(Category category)
         {
-            _categoryRepo.Update(category);
-            _categoryRepo.Save();
+            _unitOfWork.CategoryRepository.Update(category);
+            _unitOfWork.Save();
             return RedirectToAction("Index", "Category");
         }
 
@@ -71,11 +71,11 @@ namespace SteamsferWeb.Areas.Admin.Controllers
         //Delete yapınca tablodan silinsin tablo refresh olsun
         public IActionResult Delete(int id)
         {
-            if (id != null && _categoryRepo != null)
+            if (id != null && _unitOfWork.CategoryRepository != null)
             {
-                Category? deletedCategory = _categoryRepo.Get(u => u.Id == id);
-                _categoryRepo?.Remove(deletedCategory);
-                _categoryRepo?.Save();
+                Category? deletedCategory = _unitOfWork.CategoryRepository.Get(u => u.Id == id);
+                _unitOfWork.CategoryRepository?.Remove(deletedCategory);
+                _unitOfWork.Save();
                 return RedirectToAction("Index", "Category");
             }
             else
