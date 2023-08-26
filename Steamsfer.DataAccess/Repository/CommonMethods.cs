@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 using RestSharp;
 using Steamsfer.Models;
 using System;
@@ -11,14 +12,25 @@ namespace Steamsfer.DataAccess.Repository
 {
     public class CommonMethods
     {
+
+        private readonly IConfiguration _config;
+        private string APIKey;
+
+        public CommonMethods(IConfiguration config)
+        {
+            _config = config;
+            APIKey = _config.GetValue<string>("Steam:APIKey");
+        }
+
         //METHODS
         //Requesting SteamIDInformations, (uses "steamids")
+    
         public SteamCredentials GetSteamInfoOnly(string steamid)
         {
 
             var client = new RestClient("https://api.steampowered.com");
             var request = new RestRequest("ISteamUser/GetPlayerSummaries/v0002", Method.Get);
-            request.AddParameter("key", "A99213BE49E808604BD57C9081D1B41D");
+            request.AddParameter("key", APIKey);
             request.AddParameter("steamids", steamid);
             request.AddParameter("format", "json");
             RestResponse response = client.Execute(request);
@@ -46,7 +58,7 @@ namespace Steamsfer.DataAccess.Repository
             {
                 //Requesting Games, uses steamid
                 var requestGame = new RestRequest("IPlayerService/GetOwnedGames/v0001", Method.Get);
-                requestGame.AddParameter("key", "A99213BE49E808604BD57C9081D1B41D");
+                requestGame.AddParameter("key", APIKey);
                 requestGame.AddParameter("steamid", steamCredentials.SteamId);
                 requestGame.AddParameter("include_appinfo", "1");
                 requestGame.AddParameter("format", "json");

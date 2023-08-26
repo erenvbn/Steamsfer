@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Steamsfer.Utilities;
 using Steamsfer.Models;
+using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,12 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<CommonMethods>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IEmailSender, EmailSender>();
+//builder.Services.AddAuthentication().AddSteam();
+builder.Services.AddAuthentication()
+    .AddSteam(options =>
+    {
+        options.ApplicationKey = builder.Configuration["Steam:APIKey"];
+    });
 
 
 //Adding DbContext service to container with options and ConnectionString
