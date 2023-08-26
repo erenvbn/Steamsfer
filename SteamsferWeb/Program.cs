@@ -3,6 +3,10 @@ using Microsoft.EntityFrameworkCore;
 using Steamsfer.DataAccess.Data;
 using Steamsfer.DataAccess.Repository;
 using Steamsfer.DataAccess.Repository.IRepository;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Steamsfer.Utilities;
+using Steamsfer.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,12 +15,16 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<CommonMethods>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<IEmailSender, EmailSender>();
 
 
 //Adding DbContext service to container with options and ConnectionString
 builder.Services.AddDbContext<ApplicationDBContext>
     (options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false);
+builder.Services.AddIdentity<IdentityUser,IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<ApplicationDBContext>();
+builder.Services.AddRazorPages();
 var app = builder.Build();
 
 
@@ -41,11 +49,13 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthorization();
-
+//Authentication always comes before Authorization
+app.UseAuthentication(); //Checks if username and password valid
+app.UseAuthorization(); //Manages access according to UserRoles
+app.MapRazorPages();
 // Defining the default route should be followed
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    name: "areas",
+    pattern: "{area=User}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();

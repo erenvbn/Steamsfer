@@ -24,19 +24,22 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between ms-4">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link c-s1" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link c-s1" asp-area="User" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link c-s1" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link c-s1" asp-area="" asp-controller="MySteam" asp-action="Index">My Steam</a>
+                            <a class="nav-link c-s1" asp-area="User" asp-controller="MySteam" asp-action="Index">MySteam</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link c-s1" asp-area="" asp-controller="MatchSteam" asp-action="Index">MatchSteam</a>
+                            <a class="nav-link c-s1" asp-area="User" asp-controller="MatchSteam" asp-action="Index">MatchSteam</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link c-s1" asp-area="" asp-controller="SquadFinder" asp-action="Index">Squad Finder</a>
+                            <a class="nav-link c-s1" asp-area="User" asp-controller="SquadFinder" asp-action="Index">Squad Finder</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link c-s1" asp-area="Admin" asp-controller="UserDb" asp-action="Index">UserDb</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
@@ -49,6 +52,7 @@
                             </div>
                         </li>
                     </ul>
+                    <partial name="_LoginPartial"/>
                     <ul class="navbar-nav flex">
                         <btn class="btn btn-info nav-item d-flex me-5">
                             <a class=" c-s1" asp-area="" asp-controller="Login" asp-action="Index">Login</a>

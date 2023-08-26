@@ -14,6 +14,5 @@ namespace Steamsfer.Models
 
         [Range(1,100, ErrorMessage ="Please give invalid credentials.")]
         public int DisplayOrder { get; set; }
-
     }
 }

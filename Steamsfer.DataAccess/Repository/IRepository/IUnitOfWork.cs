@@ -10,6 +10,7 @@ namespace Steamsfer.DataAccess.Repository.IRepository
     {
         ICategoryRepository CategoryRepository { get; }
         IUserRepository UserRepository { get; }
+        IUserRoleRepository UserRoleRepository { get; }
         void Save();
     }
 }

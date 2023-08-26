@@ -13,12 +13,14 @@ namespace Steamsfer.DataAccess.Repository
         private ApplicationDBContext _db;
         public ICategoryRepository CategoryRepository { get; private set; }
         public IUserRepository UserRepository { get; private set; }
+        public IUserRoleRepository UserRoleRepository { get; private set; }
 
         public UnitOfWork(ApplicationDBContext db)
         {
             _db = db;
             CategoryRepository = new CategoryRepository(_db);
             UserRepository = new UserRepository(_db);
+            UserRoleRepository = new UserRoleRepository(_db); 
         }
         public void Save()
         {

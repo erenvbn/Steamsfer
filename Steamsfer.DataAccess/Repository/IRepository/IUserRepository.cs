@@ -10,6 +10,5 @@ namespace Steamsfer.DataAccess.Repository.IRepository
     public interface IUserRepository:IRepository<User>
     {
         public void Update(User obj);
-        public void Save();
     }
 }

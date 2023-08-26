@@ -2,7 +2,7 @@
 using Steamsfer.Models;
 using System.Diagnostics;
 
-namespace SteamsferWeb.Areas.Guest
+namespace SteamsferWeb.Areas.User.Controllers
 {
     [Area("User")]
     public class HomeController : Controller
