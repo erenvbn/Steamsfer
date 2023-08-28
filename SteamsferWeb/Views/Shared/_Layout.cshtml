@@ -26,9 +26,7 @@
                         <li class="nav-item">
                             <a class="nav-link c-s1" asp-area="User" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link c-s1" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link c-s1" asp-area="User" asp-controller="MySteam" asp-action="Index">MySteam</a>
                         </li>
@@ -38,30 +36,27 @@
                         <li class="nav-item">
                             <a class="nav-link c-s1" asp-area="User" asp-controller="SquadFinder" asp-action="Index">Squad Finder</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link c-s1" asp-area="Admin" asp-controller="UserDb" asp-action="Index">UserDb</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Separated link</a>
-                            </div>
-                        </li>
+                        @if (User.IsInRole(SD.Role_Admin))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link c-s1" asp-area="Admin" asp-controller="Category" asp-action="Index">Category</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link c-s1" asp-area="Admin" asp-controller="UserDb" asp-action="Index">UserDb</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Separated link</a>
+                                </div>
+                            </li>
+                        }
                     </ul>
                     <partial name="_LoginPartial"/>
-                    <ul class="navbar-nav flex">
-                        <btn class="btn btn-info nav-item d-flex me-5">
-                            <a class=" c-s1" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
-                        </btn>
-                    </ul>
-@*                     <form class="d-flex">
-                        <input class="form-control me-sm-2" type="search" placeholder="Search">
-                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                    </form> *@
                 </div>
             </div>
         </nav>

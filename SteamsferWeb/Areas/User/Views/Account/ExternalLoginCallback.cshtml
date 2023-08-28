@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "External Login Callback";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Hello, @User.Identity.Name!</p>
+    <p>You have successfully logged in with Steam.</p>
+    <p>Thank you for using our service!</p>
+}
+else
+{
+    <p>Oops! Something went wrong during external authentication.</p>
+    <p>Please try again later or contact support if the issue persists.</p>
+}
+
+<div class="mt-3">
+    <a asp-area="User" asp-controller="Home" asp-action="Index" class="btn btn-primary">Continue to Dashboard</a>
+</div>

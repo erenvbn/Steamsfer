@@ -27,5 +27,6 @@ namespace Steamsfer.Models
 
             return $"{hours}:{minutes:00}";
         }
+
     }
 }

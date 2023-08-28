@@ -1,14 +1,19 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Steamsfer.DataAccess.Data;
 using Steamsfer.DataAccess.Repository.IRepository;
 using Steamsfer.Models;
+using Steamsfer.Utilities;
 
 namespace SteamsferWeb.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    //Only Admin User can access the action methods,
+    //It can be done one by one as well
+    [Authorize(Roles = SD.Role_Admin)]
     public class CategoryController : Controller
     {
 
